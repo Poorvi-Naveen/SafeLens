@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "SafeLens",
+  "description": "Privacy Preserving Browser Agent",
+  "version": "1.0",
+
+  "permissions": [
+    "declarativeNetRequest",
+    "sidePanel",
+    "storage",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "side_panel": {
+    "default_path": "UI/sidepanel.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["UI/styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+
+  "action": {
+    "default_title": "SafeLens – Privacy Status"
+  }
+}

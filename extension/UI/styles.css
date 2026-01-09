@@ -1,0 +1,175 @@
+/* extension/UI/styles.css */
+
+/* --- 1. THE MINI ICON (Top Right) --- */
+#safelens-mini-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2147483647; /* Max Z-index */
+    font-family: 'Inter', system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding: 6px 14px;
+    border-radius: 10px;
+    border: 1px solid #E8EDF5;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(11, 28, 45, 0.1);
+    transition: all 0.3s ease;
+    animation: gentleFadeIn 1s ease-out;
+}
+
+#safelens-mini-icon:hover {
+    border-color: #D4DCE6;
+    box-shadow: 0 4px 16px rgba(31, 111, 235, 0.15);
+    transform: translateY(-1px);
+}
+
+.sl-shield-mini {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #1F6FEB 0%, #4FD1C5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sl-score-mini {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1F6FEB;
+}
+
+/* --- 2. THE CONTEXTUAL ALERT (Bottom Right) --- */
+#safelens-alert-card {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 340px;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 12px 40px rgba(11, 28, 45, 0.15), 0 0 0 1px rgba(31, 111, 235, 0.1);
+    z-index: 2147483647;
+    font-family: 'Inter', system-ui, sans-serif;
+    animation: alertSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Gradient Border Glow */
+#safelens-alert-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(79, 209, 197, 0.3) 0%, rgba(31, 111, 235, 0.3) 100%);
+    z-index: -1;
+    animation: alertGlow 3s ease-in-out infinite;
+}
+
+.sl-alert-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.sl-icon-wrapper {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #E8F2FF 0%, #F0F7FF 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sl-alert-content { flex: 1; }
+
+.sl-alert-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0B1C2D;
+    margin: 0 0 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sl-alert-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1F6FEB;
+    background: #E8F2FF;
+    padding: 2px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.sl-alert-message {
+    font-size: 14px;
+    color: #5A6C7D;
+    line-height: 1.5;
+    margin: 0 0 14px 0;
+}
+
+.sl-alert-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sl-alert-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1F6FEB;
+    background: #F0F7FF;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sl-alert-btn:hover { background: #E8F2FF; }
+
+.sl-alert-dismiss {
+    font-size: 12px;
+    color: #7B8A9D;
+    cursor: pointer;
+}
+
+.sl-alert-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #1F6FEB 0%, #4FD1C5 100%);
+    border-radius: 0 0 16px 16px;
+    width: 100%;
+    transform-origin: left;
+    animation: progressShrink 8s linear forwards;
+}
+
+/* Keyframes */
+@keyframes alertSlideIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes alertGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+@keyframes progressShrink {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+@keyframes gentleFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

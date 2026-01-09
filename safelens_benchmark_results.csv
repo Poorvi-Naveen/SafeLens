@@ -1,0 +1,11 @@
+URL,Status,Risk Score,Risk Level,Trackers Found,AI Latency (s),Summary
+https://pastebin.com,Success,25,Safe,8,19.42,Automated scan detected: Tracker: User Content (Medium Risk)
+https://skribbl.io,Success,10,Medium,7,13.19,reason
+https://softonic.com,Success,10,Safe,15,12.21,Standard heuristic scan passed.
+https://www.speedtest.net,Success,10,Safe,6,22.71,Standard heuristic scan passed.
+https://stackoverflow.com,Success,10,Safe,2,24.46,Standard heuristic scan passed.
+https://www.wikipedia.org,Success,10,Safe,7,20.36,Standard heuristic scan passed.
+https://www.bbc.com,Success,10,Safe,7,22.44,Standard heuristic scan passed.
+https://www.cnn.com,Success,25,Medium,15,22.8,Analysis failed.
+https://www.reddit.com,Success,10,Safe,2,18.17,Standard heuristic scan passed.
+https://github.com,Success,10,Safe,11,23.39,Standard heuristic scan passed.

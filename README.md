@@ -1,6 +1,21 @@
 # SafeLens: Privacy Preserving Browser Agent
 
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=yellow)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
+![AI Model](https://img.shields.io/badge/AI-Phi--3-black?style=flat&logo=ollama&logoColor=white)
+![Platform](https://img.shields.io/badge/Browser-Chrome_Extension-4285F4?style=flat&logo=google-chrome&logoColor=white)
+![Event](https://img.shields.io/badge/Event-Samsung_PRISM-1428A0?style=flat&logo=samsung&logoColor=white)
+
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=yellow)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
+![AI Model](https://img.shields.io/badge/AI-Phi--3-black?style=flat&logo=ollama&logoColor=white)
+![Platform](https://img.shields.io/badge/Browser-Chrome_Extension-4285F4?style=flat&logo=google-chrome&logoColor=white)
+![Event](https://img.shields.io/badge/Event-Samsung_PRISM-1428A0?style=flat&logo=samsung&logoColor=white)
+
 > **An Agentic AI that lives in your browser, detects invisible trackers, and "poisons" their data before it leaves your device.**
+<div align="center">
+</div> **An Agentic AI that lives in your browser, detects invisible trackers, and "poisons" their data before it leaves your device.**
 
 ## Overview
 SafeLens is not just an ad-blocker; it is an **Autonomous Privacy Agent**. While traditional tools simply block domains, SafeLens uses a local LLM (Phi-3) and a heuristic engine to analyze network traffic in real-time. It actively fights back against surveillance capitalism by performing **Traffic Poisoning**—injecting fake data into tracking requests to ruin the advertisers' user profiles.

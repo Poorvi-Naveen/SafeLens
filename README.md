@@ -37,56 +37,61 @@ Before running SafeLens, ensure you have the following installed:
 
 - Google Chrome (or Brave/Edge)
 
-- Ollama (for running the local AI model)<br>
-https://ollama.com/
+- Ollama (The local AI model)<br>
+  https://ollama.com/
 
 ## Setup Guide
-1. Clone the Repository
+1. **Clone the Repository**
 ```bash
-git clone [https://github.com/yourusername/SafeLens.git](https://github.com/yourusername/SafeLens.git)
+git clone [https://github.ecodesamsung.com/SRIB-PRISM/WAH_CodeBlooded](https://github.ecodesamsung.com/SRIB-PRISM/WAH_CodeBlooded)
 cd SafeLens
 ```
 
-2. Setup the AI Model (Ollama)
+2. **Setting Up the AI Model (Ollama)**
 Pull the lightweight Phi-3 model. This runs efficiently even on 8GB RAM laptops.
 ```bash
 ollama pull phi3:mini
 ollama serve
 ```
-(Keep this terminal running in the background)
+(Please keep this terminal running in the background)
 
-3. Setup the Backend
+3. **Setup the Backend**
 Open a new terminal in the project root.
 ```bash
 cd backend
 python -m venv venv
 # Windows
+
+
+cd backend
 venv\Scripts\activate
 # Mac/Linux
 source venv/bin/activate
 
+
+
 pip install -r requirements.txt
 ```
 
-4. Configure the Browser Extension
+4. **Configure the Browser Extension**
 - Open Chrome and go to chrome://extensions/.
 - Enable Developer Mode (top right toggle).
 - Click Load unpacked.
 - Select the SafeLens/extension folder.
 - Note: You will see the SafeLens shield icon appear in your toolbar.
 
-## How to Run (The Demo Sequence)
-To run the full system, you need two terminal windows running simultaneously.
- Terminal 1: The Brain (FastAPI)
+## Checking the Demo
+To run our project, you will require a minimum of two terminal windows running simultaneously.
+* Terminal 1: The Brain (FastAPI)
 ```bash
 cd backend
 # Make sure venv is activated
 uvicorn app.main:app --reload
 ```
 
-You should see: Uvicorn running on http://127.0.0.1:8000
+Output: Uvicorn running on http://127.0.0.1:8000
 
- Terminal 2: The Agent (Proxy)
+* Terminal 2: The Agent (Proxy)
 ```bash
 cd backend/proxy
 # Make sure venv is activated
@@ -94,10 +99,10 @@ mitmdump -s agent_core.py
 ```
 You should see: HTTP(S) proxy listening at *:8080
 
-Launch Chrome (The "Agentic" Way)
-To force Chrome to route traffic through our Agent (without messing up your system-wide proxy settings), run this command in PowerShell (Windows) or Terminal (Mac):
+* Launch Chrome (Preferably on a different terminal)
+To force Chrome to route traffic through our Agent run the below command in PowerShell (Windows) or Terminal (Mac):
 
-Windows (PowerShell):
+Windows:
 
 ```bash
 & "C:\Program Files\Google\Chrome\Application\chrome.exe" --proxy-server="127.0.0.1:8080" --ignore-certificate-errors --user-data-dir="C:\temp\safelens_profile"
@@ -110,10 +115,10 @@ Mac/Linux:
 ```
 
 ## Testing the Project
-- In the launched Chrome window, visit a tracker-heavy site (e.g., economictimes.indiatimes.com or skribbl.io).
-- Look at the Page: You will see a small SafeLens Shield icon in the top right showing a Risk Score.
-- Look at the Bottom Right: If threats are found, a "SafeLens Alert" card will pop up.
-- Look at Terminal 2 (Proxy): You will see logs like:
+- In the Chrome window that gets launched, visit any tracker-heavy site (e.g., economictimes.indiatimes.com or skribbl.io).
+- Take a look at the page: You must see a small SafeLens Shield icon in the top right showing a Risk Score.
+- Spot the Bottom Right: If threats were found, a "SafeLens Alert" card will pop up.
+- Look at Terminal 2 (Proxy): You must see logs similar to:
 ```bash
 SAFELENS AGENT INTERVENTION
 Action: Poisoned Parameter 'user_id'

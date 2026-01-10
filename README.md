@@ -30,11 +30,71 @@ SafeLens operates on a 3-tier architecture:
 
 ```mermaid
 graph TD
-    A[User Browser] -->|Traffic| B(Local Proxy :8080)
-    B -->|Clean Traffic| C[Internet]
-    B -->|Metadata| D[FastAPI Backend]
-    D -->|Inference| E[Ollama / Phi-3]
-    D -->|Risk Score| A
+    %% Styling
+    classDef browser fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
+    classDef proxy fill:#fff3e0,stroke:#e65100,stroke-width:2px;
+    classDef brain fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef external fill:#eeeeee,stroke:#616161,stroke-width:1px,stroke-dasharray: 5 5;
+
+    subgraph Local_Device ["User's Local Device"]
+        
+        %% LAYER 1
+        subgraph Layer_1_Interface ["Layer 1: Browser Extension"]
+            direction TB
+            UI["Dashboard & Privacy Shield"]:::browser
+            ContentScripts["Content Scripts<br/>(Metadata Scraper)"]:::browser
+            BgWorker["Background Worker<br/>(State Management)"]:::browser
+        end
+
+        %% LAYER 3
+        subgraph Layer_3_Agent ["Layer 3: The Agent"]
+            direction TB
+            Mitm["Mitmproxy Script<br/>(Port 8080)"]:::proxy
+            Poison["Data Poisoning Module<br/>(Random Noise Injection)"]:::proxy
+        end
+
+        %% LAYER 2
+        subgraph Layer_2_Brain ["Layer 2: Analysis Engine"]
+            direction TB
+            FastAPI["FastAPI Server"]:::brain
+            Heuristic["Heuristic Pre-processor<br/>(Deterministic Scoring)"]:::brain
+            
+            subgraph LLM_Core ["AI Inference"]
+                Ollama["Ollama Host"]:::brain
+                Phi3["Phi-3 Mini Model"]:::brain
+            end
+        end
+
+    end
+
+    subgraph Internet ["External World"]
+        Web["Websites & 3rd Party Trackers"]:::external
+    end
+
+    %% DATA FLOWS
+    %% Traffic Interception
+    UI -->|HTTP Requests| Mitm
+    Mitm -->|Cleaned/Poisoned Request| Web
+    Web -->|Response| Mitm
+    Mitm -->|Sanitized Content| UI
+
+    %% Analysis Loop
+    ContentScripts -->|"1. Scrape DOM/Cookies"| BgWorker
+    BgWorker -->|"2. Send Context"| FastAPI
+    
+    FastAPI -->|"3. Quick Scan"| Heuristic
+    Heuristic -->|"4. Risk Score"| FastAPI
+    
+    FastAPI -->|"5. Complex Reasoning"| Ollama
+    Ollama -->|Inference| Phi3
+    Phi3 -->|"Summarized Threat"| Ollama
+    Ollama -->|"6. Explanation"| FastAPI
+    
+    %% Feedback
+    FastAPI -->|"7. Alerts/Summary"| UI
+    
+    %% Internal Logic
+    Mitm -.->|Trigger| Poison
 ```
 
 ## Prerequisites

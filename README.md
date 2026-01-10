@@ -1,16 +1,16 @@
 # SafeLens: Privacy Preserving Browser Agent
 
-> **An Agentic AI that lives in your browser, detects invisible trackers, and "poisons" their data before it leaves your device.**
+> **An Agentic AI Extension that lives in your browser, which detects invisible trackers, and poisons their data before it leaves your device.**
 
 ## Overview
 SafeLens is not just an ad-blocker; it is an **Autonomous Privacy Agent**. While traditional tools simply block domains, SafeLens uses a local LLM (Phi-3) and a heuristic engine to analyze network traffic in real-time. It actively fights back against surveillance capitalism by performing **Traffic Poisoning**—injecting fake data into tracking requests to ruin the advertisers' user profiles.
 
-**Built for the Samsung Privacy Ecosystem.**
+**Designed for the Samsung Privacy & Edge AI Ecosystem.**
 
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=yellow)
-![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat&logo=fastapi&logoColor=green)
 ![AI Model](https://img.shields.io/badge/AI-Phi--3-black?style=flat&logo=ollama&logoColor=white)
-![Platform](https://img.shields.io/badge/Browser-Chrome_Extension-4285F4?style=flat&logo=google-chrome&logoColor=white)
+![Platform](https://img.shields.io/badge/Browser-Chrome_Extension-4285F4?style=flat&logo=google-chrome&logoColor=red)
 ![Event](https://img.shields.io/badge/Event-Samsung_PRISM-1428A0?style=flat&logo=samsung&logoColor=white)
 
 
@@ -87,7 +87,7 @@ pip install -r requirements.txt
 - Select the SafeLens/extension folder.
 - Note: You will see the SafeLens shield icon appear in your toolbar.
 
-## Checking the Demo
+## Running the Demo
 To run our project, you will require a minimum of two terminal windows running simultaneously.
 * Terminal 1: The Brain (FastAPI)
 ```bash
@@ -146,5 +146,31 @@ Fix: Ensure mitmdump is running in Terminal 2. If it is, check if the browser wa
 
 Fix: Refresh the webpage. The extension needs a page load event to trigger the analysis pipeline.
 
+
+## Future Roadmap
+- Samsung Knox Vault: Storing the generated "Identity Personas" inside the secure hardware enclave.
+
+- NPU Acceleration: Migrating the Phi-3 inference from CPU to the Galaxy NPU for battery efficiency.
+
+- Federated Learning: Agents share signatures of new trackers (not user data) to update the heuristic engine globally.
+
+## Project Documentation & Submission Links  
+
+* **Google Drive (Required Documents including video):**  
+[SafeLens](https://drive.google.com/drive/folders/1BB2ePN4_UNA6nXRSV9mtwByf7HVSIG0N?usp=sharing)
+
+* **Repository Docs Folder:**  
+All documents are also available locally under the [`/docs`](./docs) directory.
+
+| Document | Location |
+|--------|---------|
+| Project Report | `/docs/Report_TeamCodeBlooded_SafeLens.pdf` |
+| Demo Video | `/docs/SafeLensAgentDemo.mp4` |
+| AI Disclosure | `/docs/AI-Disclosure.pdf` |
+
 ## License
-This project is created for the Samsung PRISM hackathon 2025.
+This project is created for the Samsung PRISM Web Agent hackathon 2025.
+
+> **Note on Traffic Poisoning**
+SafeLens only modifies *known tracking parameters* and never alters user-generated content, credentials, or payments.  
+The goal is **privacy protection**, not service disruption.
